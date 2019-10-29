@@ -1,0 +1,54 @@
+<div class="row m-5" >
+  <div class="col-md-5">
+    <!-- We will build this form using ReactiveForm based on the property "form" inside customerservice.ts  -->
+    <form [formGroup]="this.travelService.form" (ngSubmit)="onSubmit()">
+      <input type="hidden" formControlName="$key"><!-- this is a primary key for each record of customer and after that we can display the active form control-->
+      <div class="form-group">
+        <label>Country</label>
+        <input formControlName="country" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.country.errors}"><!-- the value of the formControlName must match the name that we provided inside FormGroup in CustomerService class -->
+        <div class="invalid-feedback" *ngIf="submitted && formControls.country.errors">This field is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label>City</label>
+        <input formControlName="city" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.city.errors}">
+        <div class="invalid-feedback" *ngIf="submitted && formControls.city.errors">This field is required</div>
+      </div>
+      <div class="form-group">
+        <label>Celsius</label>
+        <input formControlName="celsius" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.celsius.errors}">
+        <div class="invalid-feedback" *ngIf="submitted && formControls.celsius.errors">
+          <label *ngIf="formControls.celsius.errors.required">This field is required</label>
+          <label *ngIf="formControls.celsius.errors.minlength">at least 1 number</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Price per Night</label>
+        <input formControlName="price" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.price.errors}">
+        <div class="invalid-feedback" *ngIf="submitted && formControls.price.errors">
+          <label *ngIf="formControls.price.errors.required">This field is required</label>
+          <label *ngIf="formControls.price.errors.minlength">at least 2 numbers</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Picture</label>
+        <input formControlName="img" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.img.errors}">
+        <div class="invalid-feedback" *ngIf="submitted && formControls.img.errors">This field is required</div>
+      </div>
+      <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Submit"><!-- the value of the formControlName must match the name that we provided inside FormGroup in CustomerService class -->
+
+		<div class="alert alert-info" *ngIf="showSuccessMessage">
+		        submitted successfully.
+		</div>
+
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <div class="col-md-5">
+    </div>
+    <div class="col-md-7">
+      <app-travel-list></app-travel-list>
+    </div>
+  </div>

@@ -3,8 +3,19 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig : {
+    apiKey: "AIzaSyBrcX5IbUFGBdVFFZ1OUzmLctt92MTmutQ",
+    authDomain: "travelex-f38f3.firebaseapp.com",
+    databaseURL: "https://travelex-f38f3.firebaseio.com",
+    projectId: "travelex-f38f3",
+    storageBucket: "travelex-f38f3.appspot.com",
+    messagingSenderId: "876896814093",
+    appId: "1:876896814093:web:9289422798ea1063c6c144"
+}
+  
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file
